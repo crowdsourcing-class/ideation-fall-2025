@@ -1,45 +1,53 @@
 # Crowdsourcing Project Idea: [Project Title]
 
 ## Author
-[Your name and PennKey]
+Mingni Dong/ mdong126
 
 ## Problem Statement
-[In 2-3 sentences, describe the real-world problem your project will solve.]
+Online maps and city guides tell you where to go, but not what it feels like. There’s no good way to explore the soundscapes of citiee, from quiet parks to bustling cafés which could help people choose better workspaces, travel destinations, or relaxation spots.
 
 ## Core Concept
-**One-line pitch:** [What does your project do in one sentence?]
+**One-line pitch:** SoundScape crowdsources short ambient audio clips and tags them to build a global map of sounds.
 
-**Target users:** [Who will benefit from this system?]
+**Target users:** Remote workers, travelers, urban planners, and people who love discovering new environments (musicians, game designers, etc.). To a more niche crowd, those with sensitivity to sounds. 
 
-**The crowd:** [Who are your workers? MTurk, volunteers, social media users?]
+**The crowd:** Everyday users with smartphones, students, travelers, commuters.
 
-**The task:** [What EXACTLY will crowd workers do? Be specific.]
+**The task:** Record 10–30 second ambient sound clips of their surroundings (ex coffee shop, street, forest), rate others’ clips (ex “calm,” “busy,” “noisy”), and add tags or transcriptions.
 
 ## Key Features
-1. [Core feature 1]
-2. [Core feature 2]  
-3. [Core feature 3]
+1. Audio Upload & Tagging: Quick submissions with automatic geo-tagging.
+
+2. Mood Map: Interactive map colored by sound vibes (quiet, lively, peaceful, pumped).
+
+3. Daily Sound Challenges: Themed prompts (ex Record the calmest spot on campus).
 
 ## Feasibility Check
-**Data source:** [Where will input data come from?]
+**Data source:** User-generated recordings.
 
-**Budget reality:** [How can this work with < $500?]
+**Budget reality:** Under $500 using Firebase for storage + open-source mapping (Leaflet/Mapbox free tier).
 
-**Crowd size needed:** [Rough estimate: 10s, 100s, 1000s of workers?]
+**Crowd size needed:** 100-500 contributers for initial coverage (maybe start with just the Philly area).
 
-**Quality control approach:** [Initial idea for ensuring quality]
+**Quality control approach:** 
+Majority tagging consensus on mood/noise level.
+Automatic noise filtering (e.g., skip silent clips).
+“Trusted Listener badges for accurate raters
 
 ## Technical Approach
-**Human tasks:** [What parts require human intelligence?]
+**Human tasks:** Recording, tagging, mood classification, verifying mislabeled clips.
 
-**Automated tasks:** [What parts will be computational?]
+**Automated tasks:** Noise-level analysis and spectrogram validation.
+Clustering sounds by similarity for exploration
 
-**Aggregation method:** [How will you combine crowd responses?]
+**Aggregation method:** Weighted voting + machine learning audio features.
 
 ## Prior Work
-**Similar projects:** [Name 1-2 related projects and how yours differs]
+**Similar projects:** Geoguesser, Spotify, Soundcities
+Mine is different because it is social, interactive, and focused on sound. It is also a crowdsourced, interactive project and not an art installation/statement.
 
-**Lessons from past course projects:** [What did you learn from reviewing past projects?]
+**Lessons from past course projects:** People engage when they can create and compare. Contribution loops + badges are ways to keep people returning. Social from the octalysis work is a huge motivator.
 
 ## Why This Could Work
-[2-3 sentences on why this is viable within course constraints]
+SoundScape has a built-in addiction loop. users record → see their sound appear on the map → get likes, feedback, and comparisons → earn badges → return for daily challenges.
+Unlike typical crowdsourcing apps that end when data collection is done, SoundScape grows richer the more you use it. It blends personal expression, exploration, and contribution. It is also useful to both the person uploading and the people seeing the uploads. 
