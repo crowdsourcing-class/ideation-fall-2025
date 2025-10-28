@@ -1,27 +1,27 @@
-# Crowdsourcing Project Idea: [Project Title]
+# Crowdsourcing Project Idea: Travel Buddy
 
 ## Author
 Shivi Jain, 38019270
 
 ## Problem Statement
-[In 2-3 sentences, describe the real-world problem your project will solve.]
+This will be a crowdsourced travel guide where people can both document their vacations as well as help point out their highlights on the trip. Right now, travel planning is hard, where people look at places like tripadvisor and travel websites, but it always jsut has the most popular destinations that are sometimes overly crowded and dont give visitors the real experience. 
 
 ## Core Concept
-**One-line pitch:** [What does your project do in one sentence?]
+**One-line pitch:** A social, crowdsourced travel companion that helps users discover authentic, lesser-known destinations through real traveler experiences.
 
-**Target users:** [Who will benefit from this system?]
+**Target users:** Travel enthusiasts, college students studying abroad, and people planning vacations who want genuine local insights instead of commercialized recommendations
 
-**The crowd:** [Who are your workers? MTurk, volunteers, social media users?]
-
+**The crowd:** Everyday travelers and locals who contribute reviews, short videos, and itineraries from their own trips — similar to social media micro-influencers or volunteer contributors.
 **The task:** [What EXACTLY will crowd workers do? Be specific.]
+Crowd workers will upload trip highlights (e.g., “best café near Kyoto station,” “hidden beach in Positano”), share photos or short write-ups, tag locations, and upvote or comment on others’ posts to refine quality and relevance. They will rank all of the place they went with pictures and moments for users to follow. In addition certain spots can be upvoted. 
 
 ## Key Features
-1. [Core feature 1]
-2. [Core feature 2]  
-3. [Core feature 3]
+1. [Geo-tagged Experience Feed]
+2. [Community-curated Itineraries]  
+3. [A scrapbook of your own memories for future use]
 
 ## Feasibility Check
-**Data source:** [Where will input data come from?]
+**Data source:** [User-generated submissions and public tourism APIs for location metadata]
 
 **Budget reality:** [How can this work with < $500?]
 
