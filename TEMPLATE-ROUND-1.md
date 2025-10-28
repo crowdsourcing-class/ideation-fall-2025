@@ -1,7 +1,7 @@
 # Crowdsourcing Project Idea: [Project Title]
 
 ## Author
-[Your name and PennKey]
+Shivi Jain, 38019270
 
 ## Problem Statement
 [In 2-3 sentences, describe the real-world problem your project will solve.]
