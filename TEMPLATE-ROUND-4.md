@@ -12,34 +12,34 @@ _List the projects you seriously considered. Keep it brief._
 
 | Project Name | Source | Key Takeaway (1 sentence) |
 |--------------|--------|---------------------------|
-| [Project 1]  | Round 3 / R2 Drop / R1 / Instructor / New | [What did you learn about this project?] |
-| [Project 2]  | Round 3 / R2 Drop / R1 / Instructor / New | [What did you learn about this project?] |
-| [Project 3]  | Round 3 / R2 Drop / R1 / Instructor / New | [What did you learn about this project?] |
+| Urban Explorer  | Round 3 | Has a great incentive structure |
+| MoodMap@Penn  | Round 3  | Awesome mission + great incentive |
+| TripTuner  | Round 3 | I like it when combined with social media - people vote on people's posts |
 
 _Add more rows if needed_
 
 **Resources I used**:
-- [ ] Rubric scoring (RUBRIC-PROJECT-VIABILITY.md)
-- [ ] V2 detailed analyses (reports/v2-analyses/)
+- [X] Rubric scoring (RUBRIC-PROJECT-VIABILITY.md)
+- [X] V2 detailed analyses (reports/v2-analyses/)
 - [ ] Steelman Analysis pathways (STEELMAN-ANALYSIS.md)
-- [ ] Group discussions
+- [X] Group discussions
 - [ ] Other: [specify]
 
 ---
 
 ## 2. My Decision
 
-**Project Name**: [Your final choice]
+**Project Name**: Urban Explorer
 
 **Decision type**:
 - [ ] STAYING with Round 3 project (same approach)
-- [ ] STAYING with Round 3 project (modified approach/scope)
+- [x] STAYING with Round 3 project (modified approach/scope)
 - [ ] PIVOTING to different project
 - [ ] JOINING another team's project
 
 **If pivoting or adopting someone's idea**:
-- Original author (if applicable): [Name/PennKey]
-- Original round: [R1 / R2 / R3 / Instructor idea]
+- Original author (if applicable): Mario Valek / mvalek
+- Original round: R3
 
 ---
 
@@ -49,16 +49,16 @@ _Add more rows if needed_
 
 _Explain your thought process. What made you choose this project? What were the key factors? What trade-offs did you consider?_
 
-[Your reasoning here]
+I genuinely believe this project has a chance to survive outside of this class - to my knowledge, there is no similiar app or website which would summarize what events are happening at Penn worth attending (I only know about emails). I think people organizing events like to have more ways how to market their events meaning that this app will be often populated.
 
 **What convinced me**:
-- [Key reason 1]
-- [Key reason 2]
-- [Key reason 3]
+- Motivation structure works
+- Something new - novelty
+- Realistically manageable to complete in 5 weeks
 
 **What concerns me** (and how I'll address it):
-- [Concern 1] → [How you'll mitigate it]
-- [Concern 2] → [How you'll mitigate it]
+- Idk who to be in a team with
+- I feel like I am lacking tech skills to be able to comfortably work on this kind of a project
 
 ---
 
