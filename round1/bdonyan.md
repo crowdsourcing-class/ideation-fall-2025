@@ -1,4 +1,4 @@
-# Crowdsourcing Project Idea: [Project Title]
+# Crowdsourcing Project Idea: TerraTruth
 
 ## Author
 Brandon Yan, bdonyan
