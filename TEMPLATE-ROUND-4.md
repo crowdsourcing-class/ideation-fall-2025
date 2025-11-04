@@ -49,12 +49,15 @@ _Add more rows if needed_
 
 _Explain your thought process. What made you choose this project? What were the key factors? What trade-offs did you consider?_
 
-I genuinely believe this project has a chance to survive outside of this class - to my knowledge, there is no similiar app or website which would summarize what events are happening at Penn worth attending (I only know about emails). I think people organizing events like to have more ways how to market their events meaning that this app will be often populated.
+After analyzing multiple options, I'm sticking with Urban Explorer but with significant scope changes based on the viability analysis. The core insight about centralized event discovery remains strong - Penn students genuinely need a better way to find campus events beyond scattered emails and flyers. However, the original city-wide approach was doomed to fail due to the cold-start problem.
+
+What convinced me to stay was realizing that the core concept could work with strategic pivots. By focusing exclusively on Penn campus and proactively seeding content, we can overcome the two-sided marketplace challenge. The technical architecture is solid for a 5-week timeline, and the incentive structure makes sense once we have critical mass.
 
 **What convinced me**:
-- Motivation structure works
-- Something new - novelty
-- Realistically manageable to complete in 5 weeks
+- Strong product-market fit for Penn students' actual needs
+- Technical stack is appropriate and achievable
+- With geographic focus, cold-start problem becomes solvable
+- Real potential for continued use beyond the course
 
 **What concerns me** (and how I'll address it):
 - Idk who to be in a team with
@@ -65,19 +68,21 @@ I genuinely believe this project has a chance to survive outside of this class -
 ## 4. What I'm Building
 
 **One-sentence project description**:
-[Describe your project in one clear sentence]
+A Penn-campus-only event discovery platform where students can find, post, and vote on campus events with an interactive map interface.
 
 **MVP Scope** (3-4 core features only):
 
-1. **[Feature 1 name]**: [1-sentence description]
-2. **[Feature 2 name]**: [1-sentence description]
-3. **[Feature 3 name]**: [1-sentence description]
-4. **[Feature 4 name - OPTIONAL]**: [1-sentence description]
+1. Interactive Campus Map: Map showing event locations with pins, filterable by date/category
+2. Event Posting: Simple form for posting events with title, description, location, time, and category
+3. Event Discovery & Voting: Browse events, upvote interesting ones, see popular events highlighted
+4. Basic Verification: Simple flagging system for inappropriate content + manual team moderation
+
 
 **What I'm explicitly NOT building** (to keep scope realistic):
-- [Feature cut]
-- [Feature cut]
-- [Feature cut]
+- Push notifications system
+- ML duplicate detection
+- Complex trust score algorithms
+- Mobile app (web-only responsive design)
 
 ---
 
@@ -87,16 +92,16 @@ I genuinely believe this project has a chance to survive outside of this class -
 
 _Be concrete. Not "social media" but "Post in r/UPenn and 3 class Slacks on Monday at 10am"_
 
-- **Where**: [Exact channels/locations]
-- **When**: [Specific day and time]
-- **What**: [What you'll post/ask/test]
-- **Success metric**: [How will you know if it worked? Be specific with numbers]
+- **Where**: no clue
+- **When**: no clue
+- **What**: no clue
+- **Success metric**: 10+ users
 
 **If Week 1 test fails, I will**:
-- [ ] Pivot to: [alternative approach]
-- [ ] Use MTurk/paid participants
-- [ ] Try different recruitment channel: [specify]
-- [ ] Simplify the task to: [easier version]
+- [x] Pivot to: [alternative approach]
+- [x] Use MTurk/paid participants
+- [x] Try different recruitment channel: [specify]
+- [x] Simplify the task to: [easier version]
 - [ ] Other: [specify]
 
 ---
@@ -123,25 +128,25 @@ At this stage, you are not expected to have formed teams, however if you already
 ## 7. Reflection
 
 **Most valuable part of Round 4**:
-[What helped you most in making this decision?]
+The concrete viability scoring rubric was incredibly helpful. It forced me to confront the cold-start problem directly rather than hand-waving it away with "viral growth" assumptions. The dimension-by-dimension breakdown made it clear exactly where Urban Explorer needed improvement.
 
 **Biggest surprise**:
-[What did you discover that you didn't expect?]
+How small scope changes (Penn-only vs city-wide) completely transformed the viability score. I didn't realize how much geographic focus could impact recruitment and critical mass until I saw the quantitative analysis showing the density requirements.
 
 **One thing I'd tell future students about Round 4**:
-[Your advice]
+Don't fall in love with your initial idea - fall in love with solving the core problem. Being willing to significantly constrain scope (geographically, feature-wise) is what separates feasible projects from pipe dreams.
 
 ---
 
 ## Commitment
 
 **I commit to**:
-- [ ] Building the MVP scope above (3-4 features maximum)
-- [ ] Running a concrete Week 1 validation test
-- [ ] Pivoting if Week 1 shows <20% success
-- [ ] Meeting with instructor if I hit major blockers
+- [X] Building the MVP scope above (3-4 features maximum)
+- [X] Running a concrete Week 1 validation test
+- [X] Pivoting if Week 1 shows <20% success
+- [X] Meeting with instructor if I hit major blockers
 
-**Signature**: _________________________ **Date**: _____________
+**Signature**: Mario Valek **Date**: November 4, 2025
 
 ---
 
