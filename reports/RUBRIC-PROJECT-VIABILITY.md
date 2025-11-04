@@ -23,7 +23,7 @@
 | 2 | **Very risky** - Mobile development OR complex ML OR satellite/GIS | Mobile app or audio ML pipeline |
 | 1 | **Impossible** - Multiple complex systems (mobile + ML + APIs) | Mobile + fitness APIs + ML + payments |
 
-**Your Score**: _____ / 5
+**Your Score**: 5 / 5
 
 **Red Flags**:
 - Mobile app development (add 3-4 weeks to any timeline)
@@ -45,7 +45,7 @@
 | 2 | **Weak value** - Benefits require scale OR unclear to users | Badges/points without community |
 | 1 | **No value** - Asking strangers to do work for you for free | Complex tasks for gamification |
 
-**Your Score**: _____ / 5
+**Your Score**: 2 / 5
 
 **Red Flags**:
 - Depends on partnerships (food trucks, NGOs, etc.) you don't have yet
@@ -67,7 +67,7 @@
 | 2 | **Mismatch** | High effort (15+ min) → badges only |
 | 1 | **Backwards** | Creative work (30 min) → unpaid with weak gamification |
 
-**Your Score**: _____ / 5
+**Your Score**: 4 / 5
 
 **Quick Assessment**:
 - **Task < 2 min + fun**: Gamification can work
@@ -94,7 +94,7 @@ then you have a problem.
 | 2 | **Overscoped** - Too many "essential" features | 10+ features all marked essential |
 | 1 | **Fantasy** - Building a startup/product in 5 weeks | Full platform with multiple subsystems |
 
-**Your Score**: _____ / 5
+**Your Score**: 5 / 5
 
 **Scope Test**:
 1. Could you build a working demo of the CORE loop in 2 weeks? (If no → overscoped)
@@ -114,7 +114,7 @@ then you have a problem.
 | 2 | **Vague hope** | "Social media campaigns, word of mouth" |
 | 1 | **Magic thinking** | "Users will find us" or depends on impossible partnerships |
 
-**Your Score**: _____ / 5
+**Your Score**: 4 / 5
 
 **Specificity Test**:
 - Can you NAME the exact groups/places? (If no → too vague)
@@ -135,7 +135,7 @@ then you have a problem.
 | 2 | **Vague** | "We'll use quality control" without specifics |
 | 1 | **None** | Assumes all contributions are good faith |
 
-**Your Score**: _____ / 5
+**Your Score**: 3 / 5
 
 **Common Mechanisms**:
 - ✅ Gold standard questions (test with known answers)
@@ -155,7 +155,7 @@ then you have a problem.
 ## Scoring & Interpretation
 
 ### Calculate Your Total Score
-**Total**: _____ / 30
+**Total**: 23 / 30
 
 ### Score Ranges
 
