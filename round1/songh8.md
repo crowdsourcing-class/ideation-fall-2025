@@ -1,0 +1,50 @@
+# Crowdsourcing Project Idea: NutriSnap
+
+## Author
+Hugo Song (hugo-song)
+
+## Problem Statement
+At Penn, many students eat at campus dining halls and local restaurants without clear information about the nutritional quality of their meals. Menu labels are often incomplete or unavailable, and official data rarely reflects real serving conditions. As a result, students cannot easily assess how healthy their daily food choices are. NutriSnap uses crowdsourced meal photos and nutritional estimates to build a transparent database of dining options. The system helps both students and campus dining services understand and improve nutritional balance across available meals.
+
+## Core Concept
+**One-line pitch:** A web platform where students upload photos of their meals to crowdsource nutritional data and generate a real-time health score dashboard for campus dining.
+
+**Target users:** Penn students, dining staff, and campus wellness offices.
+
+**The crowd:** Students who upload and label photos of their meals from dining halls or local restaurants.
+
+**The task:** Upload a photo of a meal, then estimate proportions of key nutrition categories—vegetables, protein, carbohydrates, oil/sugar content, and salt level—using sliders or preset options.
+
+## Key Features
+1. **Meal Upload and Labeling:** Users upload meal photos and provide quick nutritional estimates.  
+2. **Health Score Dashboard:** Aggregates ratings to show average nutritional quality per dining location.  
+3. **Feedback Loop:** Dining services can review crowd data and adjust menus accordingly.  
+4. **Personal Nutrition History:** Optional feature allowing users to view their own meal trends.
+
+## Feasibility Check
+**Data source:** Student-submitted meal images and manual labels.  
+
+**Budget reality:** Uses free cloud storage (e.g., Firebase) and lightweight image hosting; <$200 for prototype.  
+
+**Crowd size needed:** 100–300 active contributors over one semester to collect ~2,000 labeled images.  
+
+**Quality control approach:** Require Penn email login; multiple users label the same meal; average and outlier detection for consistency.
+
+## Technical Approach
+**Human tasks:** Upload meal photos, label component ratios, and rate perceived oil/salt levels.  
+
+**Automated tasks:** Aggregate nutritional estimates, detect duplicate uploads, and generate average scores per location.  
+
+**Aggregation method:** Weighted average by confidence score and number of labels per meal.
+
+## Prior Work
+**Similar projects:**  
+- MyFitnessPal collects individual nutrition data but lacks public transparency and crowd validation.  
+- FoodAI datasets use expert labeling only, not open crowdsourcing.
+
+**Lessons from past course projects:**  
+- AgriAid showed visual labeling tasks are engaging when feedback is immediate.  
+- WeightIn demonstrated the motivational value of showing users their impact on group statistics.
+
+## Why This Could Work
+NutriSnap applies human judgment to an area where automated systems remain unreliable—real-world meal assessment. By turning everyday dining into a lightweight crowdsourcing task, it generates useful data for both personal and institutional feedback. The platform aligns with course goals of aggregation, quality control, and incentive design, while contributing to campus wellness and sustainability efforts.

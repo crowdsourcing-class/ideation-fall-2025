@@ -1,0 +1,4 @@
+# Template files are protected
+TEMPLATE-*.md @jlumbroso
+/TEMPLATE-*.md @jlumbroso
+README.md @jlumbroso
