@@ -269,4 +269,4 @@ We collaborated with a total of 3 pairs, because 1 pair wasn't able to find anot
 
 1. Wikivoyage Open Travel Dataset  
 2. TripAdvisor Developer API  
-3. NETS 2130 Projects (Fun Facts, Loopify) 
+3. NETS 2130 Projects (Fun Facts, Loopify)  

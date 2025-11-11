@@ -173,6 +173,6 @@ Minimal infrastructure needs, clear user motivation, and well-defined human–ma
 
 ## Additional Notes
 
-- Future extension: personalize itineraries based on user profiles (“budget traveler,” “food lover”).  
+- Future extension: personalize itineraries based on user profiles ("budget traveler," "food lover").  
 - Potential collaboration with Penn Abroad or student travel clubs for crowd testing.  
-- Could evolve into a real-world startup idea combining crowdsourced itineraries with AI recommendations. 
+- Could evolve into a real-world startup idea combining crowdsourced itineraries with AI recommendations.  
