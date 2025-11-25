@@ -1,7 +1,7 @@
-# Final Project Proposal: [Project Title]
+# Final Project Proposal: 
 
-**Team Name**: [Your team name]  
-**Submission Date**: [Date]  
+**Team Name**: TripTuner
+**Submission Date**: 11/13/2025  
 **GitHub Organization**: [Link to your GitHub organization]
 
 ---
@@ -12,45 +12,50 @@
 
 | Name | PennKey | Primary Role(s) | Secondary Skills |
 |------|---------|----------------|------------------|
-| [Name 1] | [pennkey1] | [e.g., Frontend Dev, UI/UX] | [e.g., Python, Data Analysis] |
-| [Name 2] | [pennkey2] | [e.g., Backend Dev, API Integration] | [e.g., JavaScript, Database Design] |
-| [Name 3] | [pennkey3] | [e.g., QC Module, Data Pipeline] | [e.g., Statistics, ML] |
-| [Name 4] | [pennkey4] | [e.g., Aggregation, Analysis] | [e.g., R, Visualization] |
+| Jevin Ta | jevinta | Frontend Dev, UI/UX | Python, Data Analysis |
+| Sadia Rahman | rsadia | Frontend Dev, Backend Dev | Python, React, MongoDB |
+| Liana Veerasamy | lianav | Web Dev, Fullstack, Backend, AI Simulation | Java, Python |
+| Julia Zhuo | juzhuo | Aggregation, Analysis | R, Visualization |
+| Arushi Agarwal | arushiga | Frontend Dev | Python, SQL, React, Open AI API, Java |
 
 ### Team Skills Inventory
 
 **Skills we have:**
-- [Skill 1]: [Who has it - names/pennkeys]
-- [Skill 2]: [Who has it - names/pennkeys]
-- [Skill 3]: [Who has it - names/pennkeys]
+- Frontend: arushiga, jevinta, rsadia, lianav
+- Backend: rsadia, lianav
+- Data / Analysis: juzhuo, jevinta
 - [Skill 4]: [Who has it - names/pennkeys]
 
 **Skills we need to learn/acquire:**
-- [Skill 1]: [Why we need it] - [Who will learn it]
-- [Skill 2]: [Why we need it] - [Who will learn it]
-- [Skill 3]: [Why we need it] - [Who will learn it]
+- API integration (Google Places API or Foursquare): Needed for auto-filling trip location metadata. Learners: Liana, Sadia
+
+- Leaderboard + Metrics Computation: Needed to compute trip “wrapped” and upvote-weighted user rankings. Learners: Julia, Jevin
+
+- Moderation/QC automation (flagging low-effort data): Needed for quality control before aggregation. Learners: Arushi
 
 **External resources we might need:**
-- [Resource 1]: [e.g., Specific API access, dataset, tool] - [Status: requested/pending/acquired]
-- [Resource 2]: [e.g., Paid service credits] - [Status and cost estimate]
+
+- Google / Foursquare Places API — pending request
+- Vercel/Render hosting — free tier
+- MongoDB Atlas — free tier
 
 ### Team Availability for TA Meetings
 
-**Week of [Date]:**
+**Week of 11/16:**
 
 _List all time slots when the ENTIRE team can meet with a TA. Use Eastern Time. Format: Day, Time-Time_
 
-- Monday: [e.g., 2:00 PM - 4:00 PM, 6:00 PM - 8:00 PM]
-- Tuesday: [e.g., 10:00 AM - 12:00 PM]
-- Wednesday: [e.g., 3:00 PM - 5:00 PM]
-- Thursday: [Not available]
-- Friday: [e.g., 1:00 PM - 3:00 PM]
+- Monday: Never
+- Tuesday: 6:00 PM - 9:00 PM
+- Wednesday: 6:30 PM - 9:00 PM
+- Thursday: 6:00 PM - 9:00 PM
+- Friday: 9:00 AM to 12:00 PM and 3:00 PM to 6:00 PM
 
-**Preferred meeting duration**: [30 min / 45 min / 60 min]
+**Preferred meeting duration**: 60 min
 
-**Meeting format preference**: [In-person / Zoom / Either]
+**Meeting format preference**: [Zoom]
 
-**Primary contact for scheduling**: [Name and email]
+**Primary contact for scheduling**: [Arushi Agarwal and arushiga@sas.upenn.edu]
 
 ---
 
@@ -58,32 +63,34 @@ _List all time slots when the ENTIRE team can meet with a TA. Use Eastern Time. 
 
 ### Project Connection to Round 4
 
-**Round 4 Decision**: [STAYING / PIVOTING / JOINING / NEW]
+**Round 4 Decision**: STAYING
 
-**Original idea from**: [Round 1/2/3 author(s) - names/pennkeys]
+**Original idea from**: [Round 1 - Jevin Ta, jevinta]
 
 **How the idea evolved**: 
-_Briefly describe how your project changed from its original conception through Rounds 1-4 to this final proposal_
+The original plan was to have people describe full length trip ideas for other individuals who don't know what to do on their vacations. However we found that there was no incentive for people to do this significant amount of work for others, and we didn't want to have to pay them, so we decided to shift to a Penn only approach. In addition, instead of helping specific people that needed recommendations, we turned our app into a platform on which people can simply upload what they did on a previous day, in a few bullet points and key locations, as inspiration for other people to be able to draw from.
+
+Additionally, after talking to our professor, we decided that we need there to be an intrinsic value for people to post on our app even before there are a lot of reviews. We decided that we can tackle this in 2 ways. Firstly, we will create a 'monthly wrapped' that summarizes your favorite locations of visits. Moreover, we will create a leaderboard on which people who's trips have the most upvotes can be ranked. This creates a 'clout' incentive, as users will want to post to be able to showcase that they have visited lots of places in their 'wrapped' and to have the clout of being at the top of the leaderboard.  
 
 [2-3 sentences describing the evolution]
 
 ### Problem Statement
 
-_Refined from your Round 4 decision_
+Individuals at Penn often do not know what they can do for fun on days that they are free, and have to rely on other applications like Tiktok or Instagram to see viral restaurants/spots to visit. 
 
 [2-3 sentences clearly describing the problem you're solving and why it matters]
 
 ### One-Sentence Pitch
 
-[Your project in one compelling sentence]
+If you have ever had a moment of free time in between the business of being a UPenn student, wouldn't it be helpful to see how other people spend their days off and where they went on their day trips? 
 
 ### Target Users
 
-**End Users**: [Who will use/benefit from the system?]
+**End Users**: UPenn students
 
-**Crowd Workers**: [Who will contribute to the crowdsourcing tasks?]
+**Crowd Workers**: Other UPenn students and friends that we recruit to get enough baseline trip itineraries on the website
 
-**Scale**: [How many of each do you need for a successful demo?]
+**Scale**: ~10 of each for a base-level usable platform
 
 ### Project Type
 
@@ -91,7 +98,7 @@ _Refined from your Round 4 decision_
 - [ ] Social science experiment with the crowd
 - [ ] Tool for crowdsourcing (requesters or workers)
 - [ ] Business idea using crowdsourcing
-- [ ] Other: [specify]
+- [X] Other: Platform to crowdsource ideas amongst students, specific to travel within Philly/on-campus
 
 ---
 
@@ -101,7 +108,7 @@ _Refined from your Round 4 decision_
 
 _Required: Include a visual flow diagram showing the major components/stages of your project_
 
-**Flow diagram location**: [e.g., `docs/flow-diagram.pdf` or embed image here]
+**Flow diagram location**: [Will include soon! We wrote it out on words]
 
 Your flow diagram MUST clearly show:
 - [ ] Where/when the crowd touches the data
@@ -113,7 +120,7 @@ Your flow diagram MUST clearly show:
 
 **If you haven't created it yet**: Describe in words the major components and their relationships:
 
-1. [Component 1] → [Component 2] → [Component 3] ...
+Over **Week 1 (Nov 14–20)**, we will finalize the system architecture and data schema, set up the backend server and MongoDB cluster, and build the basic React frontend shell, so that by the end of the week we have an app that loads core pages and connects to the database. In **Week 2 (Nov 21–27)**, we will focus on core functionality: implementing the trip submission UI for bullet-point trips and locations, creating the corresponding POST/GET endpoints, and building the QC module that filters low-effort trips and validates locations, so that users can submit trips and have them accepted or rejected by QC. During **Week 3 (Nov 28–Dec 4)**, we will implement the upvote system on both frontend and backend, build the aggregation logic that ranks trips, computes monthly “wrapped” stats, and generates the leaderboard, and integrate these into the user dashboard so that we can see preliminary rankings over sample data. In **Week 4 (Dec 5–11)**, we will recruit 20-30 Penn students as our crowd to submit trips, run QC and aggregation on real data and debug any issues, and polish the UI/UX. In the **final week**, we will focus on evaluation and packaging: complete the analysis write-up using collected data, finalize documentation and README, and prepare the final demo and presentation with the working TripTuner prototype.
 
 ### Major System Components
 
@@ -121,13 +128,14 @@ _List all major components with point values (1-4) indicating implementation com
 
 | Component | Description | Points | Owner(s) | Dependencies |
 |-----------|-------------|--------|----------|--------------|
-| [Component 1] | [Brief description] | [1-4] | [Name(s)] | [What must be done first] |
-| [Component 2] | [Brief description] | [1-4] | [Name(s)] | [What must be done first] |
-| [Component 3] | [Brief description] | [1-4] | [Name(s)] | [What must be done first] |
-| [Component 4] | [Brief description] | [1-4] | [Name(s)] | [What must be done first] |
-| [Component 5] | [Brief description] | [1-4] | [Name(s)] | [What must be done first] |
+| Trip Submission UI | Students enter bullet-point trip summaries & locations | 3 | Jevin, Arushi | Basic frontend setup |
+| Trip Database + API | Store/retrieve trips (MongoDB) | 3 | Sadia, Liana | Data model finalized |
+| QC Module | Quality filtering: min length, location validation, low-effort detection | 4 | Arushi, Sadia | Trip DB |
+| Aggregation Module | Rank trips + compute monthly wrapped + leaderboard | 4 | Julia, Liana | QC module output |
+| Upvoting / Rating System | Simple UI + backend endpoints | 4 | Jevin, Arushi | Submission UI |
+| User Dashboard | Shows feed, wrapped, leaderboard | 3 | Frontend team | Aggregation module |
 
-**Total Points**: [Sum - should be 15-20]
+**Total Points**: 20
 
 **Point allocation rationale**: 
 _If teaching staff questions your point distribution, explain your reasoning here_
@@ -136,13 +144,13 @@ _If teaching staff questions your point distribution, explain your reasoning her
 
 _Step-by-step description of how your system works from start to finish_
 
-1. **[Step 1]**: [What happens, who/what does it]
-2. **[Step 2]**: [What happens, who/what does it]
-3. **[Step 3]**: [What happens, who/what does it]
-4. **[Step 4]**: [What happens, who/what does it]
-5. **[Step 5]**: [What happens, who/what does it]
-6. **[Step 6]**: [What happens, who/what does it]
-7. **[Step 7]**: [What happens, who/what does it]
+1. **[Step 1]**: User onboarding & login - A UPenn student visits TripTuner, logs in with their Penn email, and a basic user profile is created/stored by the backend (name, class year, optional interests).
+2. **[Step 2]**: Trip creation & submission - The student fills out the “Add a Trip” form on the frontend (trip title, date, 3–7 bullet points describing what they did, key locations, optional tags like “food,” “nature,” “cheap”) and submits; the frontend sends this payload to the backend API.
+3. **[Step 3]**: Quality control check - The backend passes the new trip to the QC module, which automatically checks for minimum effort (enough bullet points/characters), required fields, location validity (basic format/API check), and low-quality or inappropriate content; if it fails, the user receives an error message explaining what to fix.
+4. **[Step 4]**: Trip storage & feed update - If the trip passes QC, it is stored in the trips collection in the database, indexed by user and location, and becomes visible in the main trip feed and searchable lists for other students to browse.
+5. **[Step 5]**: Crowd interaction (upvotes & saves) - Other UPenn students browse the trip feed, filter by tags/date/location, and interact with trips by upvoting ones they find helpful or saving them to their personal “wishlist”; these interactions are recorded as engagement events in the database.
+6. **[Step 6]**: Aggregation (wrapped + leaderboard computation) - The aggregation module periodically (or on each new interaction) processes QC-approved trips and their engagement data to compute per-user stats (number of trips, distinct locations, most-visited spots) for the monthly “wrapped,” and global stats (top-rated trips, most active contributors) for the leaderboard, storing these summaries in dedicated collections.
+7. **[Step 7]**: User dashboard & admin monitoring - When a student opens their dashboard, the frontend pulls their personalized wrapped, saved trips, and the current leaderboard from the aggregated data; in parallel, an admin view allows the team to review flagged trips, spot QC failures, and monitor overall system health and crowd activity.
 
 _Continue as needed..._
 
@@ -700,8 +708,8 @@ _Continue through your full timeline..._
 
 ### Resource Questions
 
-1. [Your question about budget, tools, access]
-2. [Your question about recruitment, platforms]
+1. How can we have an incentive to keep people using our product? Eg, you can keep track of "bad" trips
+3. [Your question about recruitment, platforms]
 
 ### Other Concerns
 
@@ -722,10 +730,11 @@ _Continue through your full timeline..._
 
 **Team signatures**:
 
-- _________________________ [Name], [Date]
-- _________________________ [Name], [Date]
-- _________________________ [Name], [Date]
-- _________________________ [Name], [Date]
+- Sadia Rahman, 11/13/2025
+- Liana Veerasamy, 11/13/2025
+- Jevin Ta, 11/13/2025
+- Arushi Agarwal, 11/13/2025
+- Julia Zhuo, 11/13/2025
 
 ---
 
