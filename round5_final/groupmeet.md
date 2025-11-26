@@ -20,19 +20,21 @@
 ### Team Skills Inventory
 
 **Skills we have:**
-- [Skill 1]: [Who has it - names/pennkeys]
+- Project Management & Outreach: Alexander Mehta/amehta26
 - Database design and Backend Dev: Brandon Yan/bdonyan
-- [Skill 3]: [Who has it - names/pennkeys]
-- Python scripting: Nikki Liu/nikkiliu
+- Statistical Analysis & ML: Connor Cummings/connorcc
+- Python scripting & Data Viz: Nikki Liu/nikkiliu
 
 **Skills we need to learn/acquire:**
-- Simple data storage (Firebase, Google Sheets API, or equivalent): Needed to store form submissions cleanly and safely - [Who will learn it]
-- Basic engagement tracking (e.g., counting open rates, clickthroughs): Needed to measure match completion and validate our Week 1 test - Nikki will learn it
-- Email automation or result-delivery tooling: Needed to send match results at scale via email or auto-generated dashboards - [Who will learn it]
+- **Penn CAS/SSO Integration**: Adapting the `cas-flask-demo` logic to authenticate users and retrieve PennKeys securely - [Nikki will learn it]
+- Simple data storage (Firebase or Google Sheets API): Needed to store form submissions cleanly and safely - Brandon will lead.
+- Basic engagement tracking: Needed to measure match completion - Nikki will learn it.
+- Email automation (SendGrid/SMTP): Needed to send match results - Alexander will learn it.
 
 **External resources we might need:**
-- [Resource 1]: [e.g., Specific API access, dataset, tool] - [Status: requested/pending/acquired]
-- [Resource 2]: [e.g., Paid service credits] - [Status and cost estimate]
+- `penn-classlist-scraper`: Tool to extract class lists for enrollment QC.
+- `cas-flask-demo`: Reference repository for implementing Penn Single Sign-On.
+- SMTP Server/Email API: SendGrid or university mail relay.
 
 ### Team Availability for TA Meetings
 
@@ -93,63 +95,60 @@ GroupMeet is a lightweight web platform that matches Penn students into study gr
 
 ## System Architecture
 
+
 ### Flow Diagram
 
-_Required: Include a visual flow diagram showing the major components/stages of your project_
-
-**Flow diagram location**: [e.g., `docs/flow-diagram.pdf` or embed image here]
+**Flow diagram location**: 
+![](ArchDiagram.png)
 
 Your flow diagram MUST clearly show:
-- [ ] Where/when the crowd touches the data
-- [ ] Your quality control module
-- [ ] Your aggregation module
-- [ ] Data flow between components
-- [ ] What happens before crowd involvement
-- [ ] What happens after crowd contribution
+- [X] Where/when the crowd touches the data
+- [X] Your quality control module
+- [X] Your aggregation module
+- [X] Data flow between components
+- [X] What happens before crowd involvement
+- [X] What happens after crowd contribution
 
-**If you haven't created it yet**: Describe in words the major components and their relationships:
-
-1. [Component 1] → [Component 2] → [Component 3] ...
 
 ### Major System Components
 
-_List all major components with point values (1-4) indicating implementation complexity. Total should be 15-20 points._
-
 | Component | Description | Points | Owner(s) | Dependencies |
 |-----------|-------------|--------|----------|--------------|
-| [Component 1] | [Brief description] | [1-4] | [Name(s)] | [What must be done first] |
-| [Component 2] | [Brief description] | [1-4] | [Name(s)] | [What must be done first] |
-| [Component 3] | [Brief description] | [1-4] | [Name(s)] | [What must be done first] |
-| [Component 4] | [Brief description] | [1-4] | [Name(s)] | [What must be done first] |
-| [Component 5] | [Brief description] | [1-4] | [Name(s)] | [What must be done first] |
+| **C1. Auth & QC Service** | Flask endpoints that handle CAS login, maintain sessions, and run enrollment/QC checks before accepting profiles. | 4 | Connor, Nikki | Roster ingestion done; CAS credentials configured |
+| **C2. Intake & Feedback Frontend** | React UI for signup (preferences form) and post-match feedback form, wired to backend via REST. | 3 | Brandon | Auth endpoints available; basic API contract agreed upon |
+| **C3. Matching / Aggregation Engine** | Batch script/module that reads validated profiles, computes compatibility, and forms groups of 3–5 with scores. | 4 | Nikki | QC-validated profile data in Firebase; schema stable |
+| **C4. Notification & Email Utility** | Shared utility that formats and sends match emails and follow-up feedback emails via SendGrid or SMTP. | 3 | Alexander | Group assignments available; SMTP/SendGrid configured |
+| **C5. Admin Dashboard & Analytics** | Lightweight dashboard to inspect participation, group structures, and satisfaction metrics; supports CSV export. | 3 | Alexander, Connor | Matching + feedback data available; aggregation schema finalized |
 
-**Total Points**: [Sum - should be 15-20]
+**Total Points**: 4 + 3 + 4 + 3 + 3 = **17 points**
 
-**Point allocation rationale**: 
-_If teaching staff questions your point distribution, explain your reasoning here_
+**Point allocation rationale**:  
+- **C1** and **C3** are the most technically involved: they touch security, data integrity, and the core crowdsourcing logic, hence 4 points each.  
+- **C2**, **C4**, and **C5** are smaller but still non-trivial integrations that involve UI work, external APIs, and data visualization, hence 3 points each.  
+- The distribution keeps the workload balanced and reflects where most engineering complexity and risk lie (auth + matching).
+
 
 ### Detailed Workflow
 
 _Step-by-step description of how your system works from start to finish_
 
-1. **[Step 1]**: [What happens, who/what does it]
-2. **[Step 2]**: [What happens, who/what does it]
-3. **[Step 3]**: [What happens, who/what does it]
-4. **[Step 4]**: [What happens, who/what does it]
-5. **[Step 5]**: [What happens, who/what does it]
-6. **[Step 6]**: [What happens, who/what does it]
-7. **[Step 7]**: [What happens, who/what does it]
+1. **Professor Setup**: Instructor provides course ID (e.g., CIS 1200); System scrapes/imports the class list using `penn-classlist-scraper`.
+2. **Student Login (Authentication)**: Student visits the GroupMeet web app and clicks "Login with PennKey." The system redirects them to Penn's official CAS login page.
+3. **Identity Verification**: Upon successful login, Penn CAS redirects back to our app with the student's `pennkey`. The app creates a secure session for this user.
+4. **Preference Input**: The authenticated student fills out the preference form. The system automatically attaches their `pennkey` to the submission (preventing spoofing).
+5. **QC Processing**: System validates that the authenticated `pennkey` exists in the imported class roster. If valid, the data is accepted.
+6. **Aggregation (Matching)**: At the deadline, the script clusters students into groups of 3-5 based on compatibility scores.
+7. **Distribution**: The System emails the formed groups, introducing them and providing a "First Meeting Agenda" template.
+8. **Feedback**: 5 days later, students receive a "Rate your Group" link.
 
-_Continue as needed..._
-
-### Human vs. Automated Tasks
+## Human vs. Automated Tasks
 
 | Task | Performed By | Justification |
 |------|--------------|---------------|
-| [Task 1] | Human | [Why human intelligence is required] |
-| [Task 2] | Automated | [Why this can/should be automated] |
-| [Task 3] | Human | [Why human intelligence is required] |
-| [Task 4] | Automated | [Why this can/should be automated] |
+| Filling out course, availability, and study preference form | **Human (student)** | Only the student knows their real schedule constraints, working style, and goals; this requires subjective self-report. |
+| Verifying enrollment and PennKey authenticity | **Automated (QC module)** | Given CAS assertions and roster data, enrollment checks are a straightforward database lookup and rules-based validation. |
+| Forming study groups from validated profiles | **Automated (aggregation module)** | Grouping can be done by deterministic algorithms/heuristics that maximize compatibility based on structured features. |
+| Rating group quality and giving feedback | **Human (student)** | Perceived group quality, whether meetings occurred, and subjective satisfaction cannot be reliably inferred by an algorithm. |
 
 ---
 
@@ -157,49 +156,85 @@ _Continue as needed..._
 
 ### QC Strategy Overview
 
-[Describe your quality control approach in 2-3 paragraphs. Why is this approach appropriate for your project?]
+Our QC strategy relies on **Institutional Authentication (SSO)** combined with **Enrollment Verification**. By integrating Penn CAS (Central Authentication Service), we eliminate the risk of fake users or external spammers. We then validate that the authenticated PennKey is actually enrolled in the target course using official rosters.
 
 ### Specific QC Mechanisms
 
-**Primary mechanism**: [e.g., Gold standard questions, Majority voting, Expert review]
+**Primary mechanism**: **Penn SSO + Roster Cross-reference**
 
 **Implementation details**:
-- Input format: [What does QC module receive?]
-- Processing: [What does it do?]
-- Output format: [What does it produce?]
-- Threshold for acceptance: [How do you decide if work is "good enough"?]
+- Input format: Authenticated Session Data (`pennkey` from CAS) + Course Selection.
+- Processing: 
+  1. Verify CAS ticket validity via Penn's servers.
+  2. Check `if session['pennkey'] in class_roster_list`.
+  3. Check `if session['pennkey'] not in already_matched`.
+- Output format: Boolean `is_valid` + Access Token.
+- Threshold for acceptance: Valid CAS login AND presence on class list.
 
 **Additional mechanisms**:
-- [ ] Gold standard questions
-  - _How many? How distributed? Pass/fail criteria?_
-- [ ] Majority voting across multiple workers
-  - _How many workers per task? Tie-breaking?_
-- [ ] Attention checks
-  - _What types? How often?_
-- [ ] Reputation system
-  - _How do workers build reputation?_
-- [ ] Statistical outlier detection
-  - _What metrics? How handled?_
-- [ ] Other: [specify and explain]
+- [ ] **Attention checks**: Included in the form to verify availability.
+- [X] **Reputation system**: Tracking "ghosting" behavior tied to the persistent PennKey identity.
 
 ### QC Module Code Plan
 
-**Location in repo**: [e.g., `src/qc/quality_control.py`]
+**Location in repo**: `src/qc/quality_control.py` (or a similar path, e.g., `backend/qc/quality_control.py`)
 
-**Key functions/classes**:
-1. [Function/class name]: [Purpose]
-2. [Function/class name]: [Purpose]
-3. [Function/class name]: [Purpose]
+**Key functions/classes** (suggested):
 
-**Input data format**: 
-```
-[Describe or show example of input data structure]
-```
+1. `validate_session(request) -> str | None`  
+   - **Purpose**: Validate the CAS ticket / session cookie and return the authenticated `pennkey` or `None` if invalid.
+
+2. `check_enrollment(pennkey: str, course_id: str) -> bool`  
+   - **Purpose**: Check if `pennkey` appears in the roster for `course_id`, using roster data loaded at startup or from Firebase.
+
+3. `check_eligibility(pennkey: str, course_id: str) -> tuple[bool, str | None]`  
+   - **Purpose**: Enforce additional rules such as “not already matched,” “not opted out,” and return `(is_ok, error_code)`.
+
+4. `sanitize_form_payload(raw_payload: dict) -> dict`  
+   - **Purpose**: Strip unexpected fields, normalize availability and preference fields, and enforce type/format constraints.
+
+5. `qc_intake_submission(session, raw_payload) -> dict`  
+   - **Purpose**: Orchestrator function called by the Flask route:
+     - Grabs `pennkey` from session (via `validate_session`).  
+     - Runs `check_enrollment` and `check_eligibility`.  
+     - Calls `sanitize_form_payload` if all checks pass.  
+     - Writes sanitized data to Firebase under `validated_profiles`.  
+     - Returns a standard QC response object.
+
+**Input data format** (from intake endpoint):
+
+```json
+{
+  "course": "CIS1200",
+  "availability": ["Mon_PM", "Tue_AM", "Thu_PM"],
+  "study_style": "collaborative",
+  "goal": "Problem sets",
+  "other_notes": "Prefer in-person on campus"
+}
 
 **Output data format**:
-```
-[Describe or show example of output data structure]
-```
+
+{
+  "is_valid": true,
+  "error_code": null,
+  "sanitized_data": {
+    "pennkey": "amehta26",
+    "course": "CIS1200",
+    "availability": ["Mon_PM", "Tue_AM", "Thu_PM"],
+    "study_style": "collaborative",
+    "goal": "Problem sets",
+    "timestamp": "2025-11-13T10:00:00Z"
+  }
+}
+
+### on failure: 
+
+{
+  "is_valid": false,
+  "error_code": "NOT_ENROLLED",
+  "sanitized_data": null
+}
+
 
 **Sample scenario**:
 _Walk through a concrete example of your QC module in action_
@@ -212,53 +247,125 @@ _Walk through a concrete example of your QC module in action_
 
 ### Aggregation Strategy Overview
 
-[Describe your aggregation approach in 2-3 paragraphs. How will you combine multiple crowd contributions?]
+Our aggregation problem is **group formation**, not majority voting. The goal is to place students into groups of 3–5 that:
+
+- Share at least one overlapping availability block.  
+- Have compatible study styles and goals.  
+- Avoid leaving large numbers of students unmatched.
+
+We treat each validated student profile as a feature vector:
+
+- Categorical: `study_style`, `goal`, maybe `experience_level`.  
+- Multi-label: `availability` (list of time blocks).  
+- Course: `course` (for now mostly a single course, but design supports multiple).
+
+We then define a **pairwise compatibility score** that combines:
+
+1. **Availability overlap score**: fraction or count of shared time blocks.  
+2. **Preference similarity score**: 1 if preferences match, 0.5 if “compatible”, 0 otherwise.  
+3. **Optional weightings**: e.g., give 70% weight to availability and 30% to preferences.
+
+The aggregation engine uses these scores to construct groups via a simple heuristic:
+
+1. For each course, build a compatibility graph where nodes are students and edge weights are compatibility scores.  
+2. Iteratively:
+   - Pick the unmatched student with the highest average compatibility to others.  
+   - Form a group by greedily adding the best-matching students until the group size reaches 3–5.  
+   - Remove those students from the unmatched pool and repeat.
+
+This gives a clear, explainable baseline. If time permits, we can layer in a more advanced clustering method (e.g., k-medoids or constrained clustering) for comparison.
+
+---
 
 ### Aggregation Method
 
-**Primary method**: [e.g., Majority voting, Weighted averaging, EM algorithm, ML-based filtering]
+**Primary method**: **Greedy compatibility-based grouping**
 
 **Implementation details**:
-- Input format: [What does aggregation module receive?]
-- Processing: [What does it do?]
-- Output format: [What does it produce?]
-- Handling edge cases: [What if there's a tie? Not enough data? Conflicting information?]
 
-**Why this method**:
-[Justify why this aggregation approach is appropriate for your project and data type]
+- **Input format**: List of QC-validated student objects for a given course:
 
-### Aggregation Module Code Plan
-
-**Location in repo**: [e.g., `src/aggregation/aggregate.py`]
-
-**Key functions/classes**:
-1. [Function/class name]: [Purpose]
-2. [Function/class name]: [Purpose]
-3. [Function/class name]: [Purpose]
-
-**Input data format**:
-```
-[Describe or show example of input data structure]
-```
+```json
+[
+  {
+    "pennkey": "amehta26",
+    "course": "CIS1200",
+    "availability": ["Mon_PM", "Wed_PM"],
+    "study_style": "collaborative",
+    "goal": "Problem sets"
+  },
+  {
+    "pennkey": "connorcc",
+    "course": "CIS1200",
+    "availability": ["Mon_PM", "Thu_PM"],
+    "study_style": "collaborative",
+    "goal": "Problem sets"
+  }
+]
 
 **Output data format**:
-```
-[Describe or show example of output data structure]
+```json
+{
+  "group_id": "CIS1200-001",
+  "course": "CIS1200",
+  "members": ["amehta26", "connorcc", "bdonyan"],
+  "meeting_slot": "Mon_PM",
+  "avg_compat": 0.87,
+  "created_at": "2025-11-22T12:00:00Z"
+}
+
 ```
 
 **Sample scenario**:
-_Walk through a concrete example of your aggregation module in action_
 
-[Example: "10 workers rate restaurant review sentiment. Scores: 7 positive, 2 negative, 1 neutral. Aggregation weights by worker reliability scores, outputs 0.82 positive sentiment with confidence interval."]
+Suppose 12 validated students submit profiles for CIS1200. Each provides availability (e.g., Mon_PM, Tue_AM), study style (collaborative vs. independent), and goals (problem sets vs. concept review).
+
+The aggregation module computes pairwise compatibility across all 12 students based on overlapping availability and matching preferences. It then forms groups greedily:
+
+- Group 1: Students with shared Mon_PM availability and similar “collaborative + problem-set” preferences → avg_compat = 0.86  
+- Group 2: Students who overlap on Tue_AM with mixed but compatible styles → avg_compat = 0.78  
+- Group 3: Last four students overlap best on Thu_PM → avg_compat = 0.81  
+
+The module outputs three groups of size 3–4, each with a recommended meeting slot and compatibility score.
 
 ### Integration: QC ↔ Aggregation
 
 **How do these modules interact?**
-[Describe the relationship. Does QC happen before aggregation? After? Iteratively? Do they share data structures?]
 
-**Data flow diagram** (if different from main flow diagram):
-[Location or description]
+QC always runs **before** aggregation. Every intake submission first passes through the QC module, which:
 
+1. Confirms the user’s CAS-authenticated `pennkey`.
+2. Verifies enrollment against the course roster.
+3. Checks basic eligibility (not already matched / not opted out).
+4. Sanitizes and normalizes the payload.
+
+Only after these steps does the profile get written to the `validated_profiles/{course_id}/{pennkey}` collection in Firebase.  
+
+The **aggregation module** never touches raw form data; it only reads from `validated_profiles`. This guarantees that:
+
+- Every profile in the matching pool corresponds to a real Penn student in the course.
+- Each student appears at most once per course in the matching run.
+- Downstream matching logic can assume a consistent schema.
+
+In other words:
+
+> **Raw Form Submissions → QC Module → Validated Profiles → Aggregation / Matching**
+
+**Data flow diagram** (conceptual, text-only)
+
+```text
+Form Submission
+    ↓
+QC Module (CAS validation + roster + eligibility + sanitization)
+    ↓ (only if valid)
+Firebase: validated_profiles/{course_id}/{pennkey}
+    ↓
+Aggregation / Matching Engine
+    ↓
+Firebase: groups/{course_id}/{group_id}
+    ↓
+Notification + Feedback
+```
 ---
 
 ## User Interface & Mockups
@@ -328,30 +435,34 @@ _Write the actual instructions workers will see. Be specific and clear._
 **Qualifications required**: [e.g., >95% approval rate, >100 HITs, US location]
 
 ---
-
 ## Technical Stack
 
 ### Technologies
 
-**Frontend**: [e.g., React, Vue, vanilla JS, none (MTurk only)]
+**Frontend**: React (Simple, responsive form for student intake)
 
-**Backend**: [e.g., Python/Flask, Node.js/Express, Django]
+**Backend**: Python (Flask) - Chosen for ease of writing matching logic and integrating the `cas-flask-demo` authentication routes.
 
-**Database**: [e.g., PostgreSQL, MongoDB, Firebase, SQLite]
+**Authentication**: Penn CAS (Central Authentication Service) via `xmltodict` and `requests`.
 
-**Crowdsourcing Platform**: [e.g., MTurk, custom, social media, class volunteers]
+**Database**: Firebase (Real-time database, handles JSON documents easily).
 
-**ML/AI Tools** (if applicable): [e.g., scikit-learn, TensorFlow, OpenAI API]
+**Crowdsourcing Platform**: Custom Web App (recruitment via Class Lists/Direct Link).
 
-**Hosting/Deployment**: [e.g., Heroku, AWS, Vercel, local]
+**ML/AI Tools**: scikit-learn (for clustering/similarity scoring).
 
-**Other tools**: [Any other important tools or services]
+**Hosting/Deployment**: Vercel (Frontend) + Render or Heroku (Backend).
+
+**Other tools**: 
+- `penn-classlist-scraper` (for enrollment verification)
+- SendGrid (for automated emails)
 
 ### Repository Structure
 
 **Current structure**:
+
 ```
-your-repo/
+group-meet/
 ├── README.md
 ├── docs/
 │   ├── flow-diagram.pdf
@@ -367,10 +478,11 @@ your-repo/
 │   ├── sample-qc-output/
 │   ├── sample-agg-input/
 │   └── sample-agg-output/
-└── ...
+└── utils/
+...
 ```
 
-**Explain any deviations**: [If your structure differs, explain why]
+**Explain any deviations**: We added a `utils/` folder for the email notification logic, as it is a shared resource between modules but not strictly QC or Aggregation.
 
 ---
 
@@ -378,21 +490,21 @@ your-repo/
 
 ### Input Data
 
-**Source**: [Where will your input data come from?]
+**Source**: Web form submissions (React frontend) and Official Class Lists (Scraped/CSV).
 
-**Format**: [File type, structure, schema]
+**Format**: JSON for form data; CSV for class lists.
 
-**Sample data location**: `data/raw/` 
+**Sample data location**: `data/raw/`
 
 **Sample data description**:
-[Describe what sample data you've gathered and what it represents]
+Synthetic profiles of 50 students in CIS 1200, containing PennKeys, emails, availability blocks (Mon-Fri, AM/PM), and study style preferences.
 
 **How much data do you need?**
-- For testing/development: [amount]
-- For your final demo/analysis: [amount]
+- For testing/development: ~50 synthetic profiles.
+- For your final demo/analysis: 25-40 real student submissions.
 
 **Data collection plan**:
-[How and when will you gather the full dataset?]
+We will open the form immediately after Week 1 recruitment emails are sent. Data is collected in real-time via the web app and stored in Firebase.
 
 ### QC Module Data
 
@@ -400,18 +512,29 @@ your-repo/
 
 **Input format**:
 ```
-[Show example structure - can be JSON, CSV, etc.]
+{
+  "pennkey": "amehta26",
+  "email": "amehta26@upenn.edu",
+  "course": "CIS1200",
+  "timestamp": "2025-11-13T10:00:00",
+  "availability": ["Mon_PM", "Tue_AM"],
+  "goal": "Active Learning"
+}
 ```
 
 **Output location**: `data/sample-qc-output/`
 
 **Output format**:
 ```
-[Show example structure]
+{
+  "is_valid": true,
+  "error_code": null,
+  "sanitized_data": { ... }
+}
 ```
 
 **Sample scenario documentation**:
-[In your data/ directory, include a README explaining the sample QC data]
+Included in data/README.md: Explains how the validator checks the course field against the loaded CSV roster.
 
 ### Aggregation Module Data
 
@@ -419,26 +542,36 @@ your-repo/
 
 **Input format**:
 ```
-[Show example structure]
+[
+  {"id": "user1", "avail": ["Mon_PM"], "style": "visual", "goal": "problems"},
+  {"id": "user2", "avail": ["Mon_PM", "Tue_AM"], "style": "textual", "goal": "problems"}
+]
 ```
 
 **Output location**: `data/sample-agg-output/`
 
 **Output format**:
 ```
-[Show example structure]
+[
+  {
+    "group_id": 101, 
+    "members": ["user1", "user2", "user5"], 
+    "avg_compat": 0.85,
+    "meeting_time": "Mon_PM"
+  }
+]
 ```
 
 **Sample scenario documentation**:
-[In your data/ directory, include a README explaining the sample aggregation data]
+Included in data/README.md: details the clustering logic used to group user1 and user2 based on their shared "Mon_PM" slot.
 
 ### Data Dependencies
 
 **Does your QC module output feed into your aggregation module?**
-[Yes/No and explain the relationship]
+Yes. The Aggregation module strictly requires a list of validated student objects. It cannot process raw input.
 
 **Data flow between modules**:
-[Describe how data moves through your system]
+Raw Form Data (Frontend) → QC Module (Verifies Enrollment) → Validated Data Lake (Firebase) → Aggregation Module (Batch Process) → Group Assignments → Email Service.
 
 ---
 
@@ -447,36 +580,40 @@ your-repo/
 ### Recruitment Strategy
 
 **Where will workers come from?**
-[Be specific: MTurk? Class volunteers? Social media? Where exactly?]
+- Professor Partnership: We are emailing professors of CIS 1200, MATH 1400, CIS 5450, and CIS 5480 to distribute the link.
+
+- Direct Outreach: If professor partnership is slow, we will post on r/UPenn, Penn Clubs, and large course GroupMe chats.
 
 **How will you reach them?**
-[Describe your recruitment approach]
+"Need a study group for the Final? Fill out this 2-min form to get matched based on your schedule and learning style."
+
+We will post on ED and show up to the begining of lectures to pitch our product.
 
 **When will you recruit?**
-[Timeline for recruitment activities]
+Starting Wednesday, Nov 19th (Week 1), immediately after the form is live.
 
 ### Worker Incentives
 
 **Compensation model**: 
-- Payment per task: $[amount]
-- Estimated time per task: [X minutes]
-- Effective hourly rate: $[amount/hour]
+- Payment per task: $0.00 (Intrinsic Value)
+- Estimated time per task: 2 minutes
+- Effective hourly rate: N/A
 
-**Or alternative incentive**: [e.g., course credit, gamification, intrinsic motivation]
+**Or alternative incentive**: The incentive is the utility of the service: finding a compatible study group for homework or final exams without the social friction of asking around.
 
-**Justification**: [Why this incentive structure will work]
+**Justification**: Students have a strong immediate need (upcoming finals) and high friction in current solutions (spamming chats). The value of a "good match" exceeds the 2 minutes of effort required.
 
 ### Scale Requirements
 
 **For MVP/Demo**:
-- Minimum workers needed: [number]
-- Minimum tasks completed: [number]
-- Timeline: [when you need this by]
+- Minimum workers needed: 25 students
+- Minimum tasks completed: 25 form submissions, 2 groups created
+- Timeline: By Nov 28th (Thanksgiving Break)
 
 **For Full Analysis**:
-- Target workers: [number]
-- Target tasks: [number]
-- Timeline: [when you need this by]
+- Target workers: 40+ students
+- Target tasks: 40+ form submissions, 5 groups created
+- Timeline: By Dec 8th (Final Exam Period)
 
 ### Backup Plan
 
@@ -484,7 +621,7 @@ your-repo/
 - [ ] Use MTurk/paid workers (budget: $[amount])
 - [ ] Simplify task to require fewer workers
 - [ ] Use simulated/synthetic data
-- [ ] Other: [specify]
+- [ X ] Other: We will pivot to a "General Productivity" or "Co-working" pool (not class-specific) and recruit from our own social networks/clubs to ensure we have enough humans to validate the matching algorithm, even if the "class roster" aspect is simulated. This will involve going beyond the penn community likely.
 
 ---
 
@@ -492,52 +629,57 @@ your-repo/
 
 ### Week-by-Week Plan
 
-**Week 1 (Dates: [X/X - X/X])**
-- Milestone: [Major goal for this week]
+**Week 1 (Dates: [11/13 - 11/20])**
+- Milestone: MVP Launch & Initial Recruitment
 - Tasks:
-  - [ ] [Specific task] - [Owner]
-  - [ ] [Specific task] - [Owner]
-  - [ ] [Specific task] - [Owner]
+  - [ ] Build and Deploy Intake Form (React/Firebase) - Brandon
+  - [ ] Develop QC Validator & Scraper Integration - Connor
+  - [ ] Secure 1 Professor/Class Partner & Send Announcements - Alexander
+  - [] Port `cas-flask-demo` code into backend to handle login/logout routes - Nikki
+- Deliverable: Live URL for signups; First batch of data entering the system.
+
+**Week 2 (Dates: [11/21 - 11/27])**
+- Milestone: Matching Pilot & Result Distribution
+- Tasks:
+  - [ ] Finalize Aggregation Script (Clustering Logic) - Nikki
+  - [ ] Run Matching Batch on Week 1 Data - Connor
+  - [ ] Create Group Success Monitoring Strategy - Brandon
+  - [ ] Distribute Results via Automated Email - Alexander
 - Deliverable: [What will be done/ready by end of week]
 
-**Week 2 (Dates: [X/X - X/X])**
-- Milestone: [Major goal for this week]
+**Week 3 (Dates: [11/28 - 12/04])**
+- Milestone: Feedback Loop & Admin Dashboard
 - Tasks:
-  - [ ] [Specific task] - [Owner]
-  - [ ] [Specific task] - [Owner]
-  - [ ] [Specific task] - [Owner]
-- Deliverable: [What will be done/ready by end of week]
+  - [ ] Send "Rate Your Group" Feedback Survey - Brandon
+  - [ ] Build Admin Dashboard (CSV Export) for Instructors - Alexander
+  - [ ] Analyze Feedback Data vs. Matching Score - Connor
+- Deliverable: Final Project Report, Dashboard Demo, and Analysis of Match Quality.
 
-**Week 3 (Dates: [X/X - X/X])**
-- Milestone: [Major goal for this week]
+**Week 4 (Dates: [12/05 - 12/11])**
+- Milestone: Final Presentation Prep and Overview
 - Tasks:
-  - [ ] [Specific task] - [Owner]
-  - [ ] [Specific task] - [Owner]
-  - [ ] [Specific task] - [Owner]
-- Deliverable: [What will be done/ready by end of week]
+  - [ ] Compile all metrics (signup rate, match success, satisfaction) - Nikki
+  - [ ] Polish Codebase and Documentation - All
+  - [ ] Record Demo Video - All
+- Deliverable: Final Presentation and Code Submission.
 
-**Week 4 (Dates: [X/X - X/X])**
-- Milestone: [Major goal for this week]
-- Tasks:
-  - [ ] [Specific task] - [Owner]
-  - [ ] [Specific task] - [Owner]
-  - [ ] [Specific task] - [Owner]
-- Deliverable: [What will be done/ready by end of week]
-
-_Continue through your full timeline..._
 
 ### Critical Path
 
 **Blocking dependencies** (what MUST be done before other work can proceed):
-1. [Task A] must be done before [Task B, Task C]
-2. [Task X] must be done before [Task Y]
+1. Intake Form must be live before Recruitment can effectively start.
+
+2. Recruitment must reach N=20 participants before Matching Script can produce meaningful clusters.
+
+3. Matching must occur before Feedback Surveys can be sent.
 
 **Parallel work** (what can be done simultaneously):
-- [Person 1] can work on [X] while [Person 2] works on [Y]
+- Nikki can build the Aggregation/Matching Logic while Brandon builds the Frontend Form.
+- Connor can build the QC/Scraper while Alexander handles Recruitment Outreach.
 
 **Integration points** (when pieces must come together):
-- [Date]: [What components must integrate]
-- [Date]: [What components must integrate]
+- Nov 20: Frontend (Form) data must successfully feed into the QC module.
+- Nov 21: Validated data must be ready for the Aggregation script to run the first batch.
 
 ---
 
