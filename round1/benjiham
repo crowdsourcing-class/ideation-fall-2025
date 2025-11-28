@@ -1,0 +1,89 @@
+# Crowdsourcing Project Idea: CrowdQueues – Real-Time Campus Wait Times
+
+## Author
+Benjamin Ham (benjiham)
+
+## Problem Statement
+Students at large campuses routinely waste time walking to dining halls, gyms, study spaces, or printers only to find them overcrowded or with long lines. Existing tools (like Google Maps “popular times”) are too coarse-grained and often don’t cover campus-specific locations. There’s no lightweight, campus-focused way to know right now where the shortest lines and best study vibes are.
+
+## Core Concept
+
+**One-line pitch:** A crowdsourced live map of campus wait times so students know where to go before they leave their dorm or class.
+
+**Target users:** Undergraduate and graduate students on large university campuses (starting with Penn).
+
+**The crowd:** Students physically on campus who submit quick micro-updates about how busy a location is such as dining halls, gyms, study spaces, printers, libraries.
+
+**The task:**  
+Workers open a simple web/app interface to:
+- Select a campus location (e.g., “Hill Dining,” “Pottruck Gym,” “Van Pelt 5th floor”)
+- Submit:
+  - Current **wait time bucket** (e.g., “<5 min”, “5–15 min”, “15–30 min”, “>30 min”)
+  - **Crowdedness level** (1–5 scale)
+  - Optional **“vibe” tags** (quiet, social, chaotic, good for grinding, etc.)
+- Optionally **confirm or flag** recent reports from other students (“this still looks accurate” / “this is wrong”).
+
+## Key Features
+
+1. **One-tap reporting UI** with pre-defined buckets (wait times, crowdedness, vibe tags) to keep tasks under 10 seconds.
+2. **Live heatmap & ranking** of campus locations (e.g., “Best study spots right now,” “Shortest lunch line nearby”).
+3. **Quality control mechanisms** like redundant reports, agreement scores, and reputation-based weighting of contributors.
+
+## Feasibility Check
+
+**Data source:**  
+- Static list of campus locations from university maps / OSM building data.  
+- Real-time crowd data comes entirely from student submissions.
+
+**Budget reality:**  
+- Primary recruitment via classes, group chats, clubs, and QR codes posted at locations.  
+- Incentives via <$500 budget: small raffle entries for each valid report, plus leaderboard badges instead of direct per-task payment.
+
+**Crowd size needed:**  
+- For one campus pilot, on the order of **hundreds of students** making occasional reports
+
+**Quality control approach:**  
+- Require **multiple independent reports** per location/time window; discard outliers.  
+- Use **time-decay** (recent reports count more).  
+- Track **user reliability scores** based on historical agreement with others.  
+- Occasional **photo spot-checks** that TAs or a small paid crowd validate.
+
+## Technical Approach
+
+**Human tasks:**  
+- Report current wait time and crowdedness at a location.  
+- Tag the “vibe” (quiet / loud / social / empty / exam-cram, etc.).  
+- Verify or flag recent reports (“still accurate” / “no longer true”).
+
+**Automated tasks:**  
+- Aggregate reports per location using time-decayed weighted averages.  
+- Detect obvious outliers (e.g., a single extreme report that disagrees with many others).  
+- Generate simple predictions to estimate near-future wait times.  
+- Power the front-end map/list rankings.
+
+**Aggregation method:**  
+- For each location and 15-minute time window, compute:
+  - A weighted average of crowdedness (weights = recency × user reliability).  
+  - A mode/majority bucket for wait time.  
+  - A distribution of vibe tags (top 2–3 tags shown to users).  
+- Display confidence scores (e.g., “High confidence – 12 reports in the last 20 minutes” vs. “Low confidence – 2 reports”).
+
+## Prior Work
+
+**Similar projects:**  
+- Google Maps “popular times” and “live busyness” for businesses.  
+- Waze-style crowd traffic reporting.  
+
+**How this differs:**  
+- Focused specifically on campus micro-locations (study rooms, printers, small cafes) that global tools ignore.  
+- Adds qualitative vibe tags, not just volume.  
+- Designed as a course-scale pilot with explicit crowdsourcing + aggregation logic, not a general consumer app.
+
+**Lessons from past course projects (general):**  
+- Projects succeed when tasks are **very simple and fast** for contributors.  
+- Recruiting from an existing, motivated community (a single campus) is more realistic than relying on a generic crowd with no stake in the outcome.  
+- Quality control cannot be an afterthought; redundancy and aggregation must be designed from the start.
+
+## Why This Could Work
+
+The tasks are extremely lightweight (10–15 seconds per update), and students directly benefit from contributing because better data helps them avoid lines and find good study spots. The system fits the class constraints: one semester is enough to build a prototype web interface, recruit a few hundred students on one campus, and run basic aggregation + quality control. With < $500 in incentives and infrastructure, the project can still generate useful, measurable crowd data about how students move and make choices on campus.
