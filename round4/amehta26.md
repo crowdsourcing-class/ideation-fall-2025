@@ -154,3 +154,26 @@ Don't be stuck with your first idea. The "Stop and Pivot" feedback isn't a perso
 1. Save as `round4/[your-pennkey].md`
 2. Submit via pull request
 3. Deadline: [Instructor will specify]
+
+
+Notes with Professor:
+
+Banking vs Active Learning.
+
+For professors, forming group projects is a pain and helping with course ratings is also big.
+
+GroupMeet could be the best place for any group. You can have student led groups or instructor started groups. 
+
+Could add class lists from Professors
+- Prof Lumbroso has a tool to extract class list from
+https://github.com/jlumbroso/penn-classlist-scraper 
+courses.at.upenn.edu
+
+Ask instructors in project based classes
+- What would you like to measure
+- What would you like to evaluate
+
+Convince Instructors that this is the easiest tool. 
+- This will enable the fly wheel.
+- Make it easy to export a csv for tracking whether students are using.
+- Email Professor Lumbroso for literature about peer feedback
