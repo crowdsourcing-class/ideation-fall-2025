@@ -1,6 +1,4 @@
-# Crowdsourcing Project Idea: [Project Title]
-
-_Replace [Project Title] with a creative name for your project_
+# Crowdsourcing Project Idea: AgriAid
 
 ## Authors
 
