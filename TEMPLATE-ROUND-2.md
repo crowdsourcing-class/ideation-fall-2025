@@ -1,155 +1,56 @@
-# Crowdsourcing Project Idea: [Project Title]
+# Crowdsourcing Project Idea: GroceryLens
 
-_Replace [Project Title] with a creative name for your project_
-
-## Authors
-
-**Original Author:** [Name and PennKey of person whose idea this was]
-
-**Contributor:** [Name and PennKey of partner who helped expand the idea]
+## Author
+Julia Zhuo 83554455
 
 ## Problem Statement
+Grocery prices and product quality can vary dramatically even between stores in the same neighborhood. Shoppers often lack transparent, localized data to compare value or identify which stores provide the best deals. *GroceryLens* aims to address this information gap by crowdsourcing real-time data on grocery prices and quality, empowering communities to make informed decisions, reduce overspending, and promote fair competition among local retailers.
 
-[In 2-3 sentences, describe the problem your project will solve. What pain point or challenge are you addressing?]
+## Core Concept
+**One-line pitch:** *GroceryLens* crowdsources and visualizes neighborhood-level grocery data—combining price, quality, and user validation—to help shoppers find the best value for their money.
 
-## Target Audience
+**Target users:** Everyday grocery shoppers such as college students, families, and budget-conscious consumers who seek affordable yet high-quality products.
 
-[Who will use this system? Who will be your crowd workers? Be specific about the types of users and workers involved.]
+**The crowd:** Local volunteers and shoppers who regularly visit nearby stores and are motivated by community engagement, rewards, or savings insights.
 
-## Description
-
-[Provide a clear description of your crowdsourcing project in 3-4 sentences. What will the system do? How will it work at a high level?]
-
-## Project Type
-
-_Select the category that best fits your project:_
-
-- [ ] Human computation algorithm
-- [ ] Social science experiment with the crowd
-- [ ] Tool for crowdsourcing (requesters or workers)
-- [ ] Business idea using crowdsourcing
-- [ ] Other: [specify]
+**The task:** Crowd workers upload photos of grocery items, input prices, rate quality (freshness, packaging, taste) on a 1–5 scale, and specify the store name and location. They can also verify or flag others’ submissions, ensuring data reliability and accountability.
 
 ## Key Features
+1. **Interactive Grocery Map:** A live visual map displaying average prices, item availability, and quality scores by store and product category (produce, dairy, snacks, etc.).
+2. **Reputation and Validation System:** Contributors earn “trust points” for accurate submissions. Verified entries carry more weight, and users can flag inconsistent data.
+3. **Analytics Dashboard:** Visual insights showing neighborhood trends—price fluctuations, seasonal quality shifts, and store performance over time.
+4. **Smart Recommendations:** Suggests nearby stores offering the best price-to-quality ratio for popular items (e.g., milk, apples, rice).
+5. **Gamified Contributions:** Leaderboards and digital rewards encourage ongoing participation and healthy community competition.
 
-_List 5-8 key features or capabilities of your system. Expand from Round 1:_
+## Feasibility Check
+**Data source:** User-submitted entries (photos, prices, quality ratings) through a simple mobile app or web platform with geolocation tagging.
 
-1. [Feature 1]
-2. [Feature 2]
-3. [Feature 3]
-4. [Feature 4]
-5. [Feature 5]
-6. [Feature 6 - optional]
-7. [Feature 7 - optional]
-8. [Feature 8 - optional]
+**Budget reality:** Under $500 total—funds allocated to cloud hosting, lightweight data processing (e.g., Firebase or Airtable backend), and small gift card incentives for early contributors.
 
-## Feasibility: Crowd & Resources
+**Crowd size needed:** Approximately 300–500 active users across several neighborhoods to generate meaningful comparisons and statistical reliability.
 
-**Where will your crowd workers come from?**
-[E.g., MTurk, volunteers, social media users, students, etc.]
-
-**What will they provide?**
-[E.g., labels, votes, creative content, transcriptions, etc.]
-
-**What skills do they need?**
-[E.g., bilingual, domain expertise, basic internet skills, etc.]
-
-**Do skills vary widely? How?**
-[Explain if some workers will be better than others and why]
-
-**How will you incentivize participation?**
-[E.g., payment, gamification, intrinsic motivation, course credit. Be specific about your incentive design.]
-
-**How much will it cost?**
-[Provide rough cost estimates: $/task, $/worker, total budget needed]
-
-**Where will your data come from?**
-[E.g., public datasets, user-generated, scraped data, APIs, etc.]
-
-**How many crowd workers do you need?**
-[Estimate the scale: 10s, 100s, 1000s?]
+**Quality control approach:**
+- Automated photo verification to ensure product label and price tag visibility.
+- Weighted consensus: at least three independent submissions per product/store for data validation.
+- Trust-based scoring: frequent and accurate contributors gain higher influence in aggregate results.
 
 ## Technical Approach
+**Human tasks:**
+- Submitting grocery data (photo, price, rating, store info).
+- Reviewing and validating others’ submissions.
+- Reporting errors or price changes.
 
-**What are the main steps/components in your system?**
+**Automated tasks:**
+- Aggregating and averaging verified data using weighted means.
+- Detecting anomalies or fake entries through statistical outlier detection.
+- Generating real-time dashboards and maps using simple visualization frameworks.
 
-1. [Step 1: e.g., "User uploads image"]
-2. [Step 2: e.g., "System segments image into regions"]
-3. [Step 3: e.g., "Crowd labels each region"]
-4. [Step 4: e.g., "System aggregates labels via majority vote"]
-5. [Step 5: e.g., "ML model is trained on labeled data"]
-
-**What parts are done by the crowd vs. automated?**
-[Clearly distinguish human tasks from computational tasks]
-
-**What technologies/tools will you use?**
-[E.g., Python, React, AWS, specific ML libraries, MTurk API, etc.]
-
-**How will you aggregate results from the crowd?**
-[E.g., majority voting, weighted averaging, expert adjudication, ML filtering, etc.]
-
-## Quality Control
-
-**How will you ensure quality of crowd contributions?**
-
-[Describe your quality control mechanisms in detail]
-
-**Specific quality control methods:**
-- [ ] Gold standard questions (test questions with known answers)
-- [ ] Majority voting across multiple workers
-- [ ] Expert review or verification
-- [ ] Attention checks or trap questions
-- [ ] Reputation/qualification systems
-- [ ] Statistical outlier detection
-- [ ] Other: [specify]
-
-## Evaluation & Success Metrics
-
-**How will you know if your project succeeds?**
-[Describe specific metrics or evaluation criteria]
-
-**What would success look like quantitatively?**
-[E.g., "90% accuracy," "100 users in first week," "$X cost per task"]
-
-## Challenges & Mitigation Strategies
-
-_For each challenge, propose a mitigation strategy:_
-
-**Challenge 1:** [Describe challenge]
-**Mitigation:** [How will you address it?]
-
-**Challenge 2:** [Describe challenge]
-**Mitigation:** [How will you address it?]
-
-**Challenge 3:** [Describe challenge]
-**Mitigation:** [How will you address it?]
+**Aggregation method:** Each product-store pair’s score is a weighted average of verified entries, adjusted by contributor reliability and recency of submission.
 
 ## Prior Work
+**Similar projects:** Yelp, PriceSpy, and Waze all use crowdsourced input, but *GroceryLens* differentiates itself by focusing on *structured grocery data* (price + quality) rather than subjective reviews or navigation.
 
-_Are there similar projects or systems? How is yours different?_
+**Lessons from past projects:** Routine tasks—like grocery shopping—encourage consistent engagement. A simple, feedback-driven interface and visual insights increase both participation and data quality.
 
-[Describe similar work and what makes your approach unique or improved]
-
-**Specific related projects:**
-- [Related Project 1]: [How it relates and how you differ]
-- [Related Project 2]: [How it relates and how you differ]
-
-## Discussion Notes from Round 2
-
-**What did you agree on?**
-[Key points of agreement between partners]
-
-**What concerns or pushback emerged?**
-[Questions, challenges, or areas of uncertainty discussed]
-
-**Why is this idea promising?**
-[Explain why you chose to develop this idea over the alternative]
-
-**What makes this sustainable and feasible?**
-[Specific reasons this can work within course constraints]
-
-## Additional Notes
-
-_Any other relevant information, inspirations, or considerations?_
-
-[Optional: Add any additional context, ideas, or references]
+## Why This Could Work
+*GroceryLens* is feasible because it relies on everyday human experiences and simple data collection tasks. The platform transforms small, routine actions into valuable community insights that help users save money, shop smarter, and promote market transparency. The project combines human intuition with lightweight automation, operates well within a limited budget, and creates tangible local impact—making it both socially meaningful and technically achievable.
